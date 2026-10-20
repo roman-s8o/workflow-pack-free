@@ -1,0 +1,2 @@
+{"ts":"2026-10-15T22:07:29+02:00","id":"E001","type":"verification_gap","result":"failure","severity":"medium","detail":"total() subtracts discount_percent from the subtotal instead of applying a percentage; the test passes only because 100 minus 10 equals 90.","evidence":"shop.py:total"}
+{"ts":"2026-10-15T22:08:19+02:00","id":"E002","type":"review_result","result":"success","detail":"Fresh review of shop.py: 3 findings, 2 real, 1 false positive (reviewer did not check for existing tests; tests exist but were weak).","evidence":"shop.py, test_shop.py"}
