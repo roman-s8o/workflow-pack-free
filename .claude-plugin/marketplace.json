@@ -1,0 +1,14 @@
+{
+  "name": "tnsystems",
+  "description": "Claude Code plugins by TN Systems",
+  "owner": {
+    "name": "TN Systems"
+  },
+  "plugins": [
+    {
+      "name": "workflow-pack",
+      "source": "./",
+      "description": "Free edition of the Workflow Pack: the fresh-review skill. Independent review by an agent with no shared context."
+    }
+  ]
+}

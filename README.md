@@ -9,16 +9,30 @@ This is the free part of the Workflow Pack. The full pack turns a rough idea int
 ```
 .claude/skills/
 └── fresh-review/SKILL.md   independent review by an agent with no shared context
+.claude-plugin/             plugin files, so Claude Code can install it with /plugin
 demo/                       a worked example of the full pack, with real, unedited outputs
 ```
 
 ## Install
 
-Copy `.claude/` into the root of your project. If the project already has `.claude/skills/`, copy only the `fresh-review` folder into it.
+As a plugin, in Claude Code 2.1.275 or later:
+
+```
+/plugin install workflow-pack --marketplace roman-s8o/workflow-pack-free
+```
+
+In earlier versions, in two steps:
+
+```
+/plugin marketplace add roman-s8o/workflow-pack-free
+/plugin install workflow-pack@tnsystems
+```
+
+Or by hand: copy `.claude/` into the root of your project. If the project already has `.claude/skills/`, copy only the `fresh-review` folder into it.
 
 ## Use
 
-Run `/fresh-review <file, diff or plan>`, for example `/fresh-review src/parser.py` or `/fresh-review the last commit`. The agent:
+Run `/workflow-pack:fresh-review <file, diff or plan>` if you installed the plugin, or `/fresh-review <file, diff or plan>` if you copied the folder. For example: `/workflow-pack:fresh-review src/parser.py` or `/workflow-pack:fresh-review the last commit`. The agent:
 
 1. writes the acceptance criteria (from `docs/ROADMAP.md` if you have one, otherwise it asks you);
 2. gives the reviewer only the artifact, the criteria, the relevant rules from your `CLAUDE.md` and the output format, not your conversation;

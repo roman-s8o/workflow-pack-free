@@ -1,0 +1,15 @@
+{
+  "name": "workflow-pack",
+  "displayName": "Workflow Pack (free edition)",
+  "version": "1.1.0",
+  "description": "fresh-review: an independent agent with no access to your reasoning reviews a file, diff or plan; each finding is checked and labelled real, false positive or unclear.",
+  "author": {
+    "name": "TN Systems",
+    "url": "https://tnsystems.gumroad.com/l/workflow-pack"
+  },
+  "homepage": "https://github.com/roman-s8o/workflow-pack-free",
+  "repository": "https://github.com/roman-s8o/workflow-pack-free",
+  "license": "MIT",
+  "keywords": ["code-review", "review", "workflow", "skills"],
+  "skills": ["./.claude/skills/"]
+}
