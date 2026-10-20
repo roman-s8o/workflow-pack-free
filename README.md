@@ -1,8 +1,8 @@
-# Workflow Pack 1 — Free edition
+# Workflow Pack — Free edition
 
 One skill for Claude Code: `fresh-review`. It sends a file, a diff or a plan to an independent agent that has not seen your conversation, so the review is not anchored by your reasoning. Then it checks each finding and labels it real, false positive or unclear.
 
-This is the free part of Workflow Pack 1. The full pack turns a rough idea into a roadmap of verifiable milestones and builds it one milestone at a time.
+This is the free part of the Workflow Pack. The full pack turns a rough idea into a roadmap of verifiable milestones and builds it one milestone at a time.
 
 ## What is inside
 
@@ -39,7 +39,7 @@ See `demo/README.md`, step 4: a fresh review found a real bug that a weak test h
 
 Adds: `roadmap` (a rough idea to a roadmap of finished, verifiable milestones), `milestone` (build one milestone with approval and verification at each step), `log-event` (a log of what went wrong), `audit` (read the log, find what repeats, propose one hypothesis), `experiment` (test the hypothesis with a baseline and a verdict), the router `CLAUDE.md`, the project-state and roadmap templates, the experiment template, and a step-by-step guide. With the full pack, `fresh-review` also records its counts in the event log for the audit.
 
-Full pack: https://tnsystems.gumroad.com/l/workflow-pack-1
+Full pack: https://tnsystems.gumroad.com/l/workflow-pack
 
 ## License
 
