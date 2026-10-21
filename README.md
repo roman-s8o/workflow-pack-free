@@ -1,17 +1,18 @@
 # Workflow Pack — Free edition
 
-One skill for Claude Code: `fresh-review`. It sends a file, a diff or a plan to an independent agent that has not seen your conversation, so the review is not anchored by your reasoning. Then it checks each finding and labels it real, false positive or unclear.
+**The test passed. The code was wrong.**
 
-This is the free part of the Workflow Pack. The full pack turns a rough idea into a roadmap of verifiable milestones and builds it one milestone at a time.
+```python
+def total(prices, discount_percent=0):
+    subtotal = sum(prices)
+    return subtotal - discount_percent   # meant: take a percentage off
 
-## What is inside
-
+assert total([100], 10) == 90            # passes: 100 minus 10 is also 90
 ```
-.claude/skills/
-└── fresh-review/SKILL.md   independent review by an agent with no shared context
-.claude-plugin/             plugin files, so Claude Code can install it with /plugin
-demo/                       a worked example of the full pack, with real, unedited outputs
-```
+
+This is from the demo project in this repository. The only test used the one input where the right and the wrong formula give the same answer. The plan's Definition of Done used the same example. Tests were green, the milestone looked done, and the code was wrong.
+
+`fresh-review` is a free skill for Claude Code that catches this kind of mistake. It writes down what the work must do, gives the work to an agent that has not seen your conversation, then checks each finding and labels it real, false positive or unclear. In the demo it reviewed `shop.py` and returned 3 findings: 2 real, including this bug, and 1 false positive.
 
 ## Install
 
@@ -32,7 +33,7 @@ Or by hand: copy `.claude/` into the root of your project. If the project alread
 
 ## Use
 
-Run `/workflow-pack:fresh-review <file, diff or plan>` if you installed the plugin, or `/fresh-review <file, diff or plan>` if you copied the folder. For example: `/workflow-pack:fresh-review src/parser.py` or `/workflow-pack:fresh-review the last commit`. The agent:
+Run `/workflow-pack:fresh-review <file, diff or plan>` if you installed the plugin, or `/fresh-review <file, diff or plan>` if you copied the folder. For example: `/workflow-pack:fresh-review src/parser.py`, `/workflow-pack:fresh-review the last commit` or `/workflow-pack:fresh-review docs/PLAN.md`. The agent:
 
 1. writes the acceptance criteria (from `docs/ROADMAP.md` if you have one, otherwise it asks you);
 2. gives the reviewer only the artifact, the criteria, the relevant rules from your `CLAUDE.md` and the output format, not your conversation;
@@ -41,7 +42,24 @@ Run `/workflow-pack:fresh-review <file, diff or plan>` if you installed the plug
 
 "No findings" is a valid result. The agent does not ask the reviewer to try again just to get findings.
 
-See `demo/README.md`, step 4: a fresh review found a real bug that a weak test hid, and one false positive. The demo was produced with the full pack, so it also shows the skills that are not in this free edition.
+## How is it different from /code-review?
+
+Claude Code has a built-in `/code-review`. It looks for bugs in your code changes, and its reviewer also runs without your conversation. Keep using it. `fresh-review` does a different job:
+
+- **It checks the work against what it should do.** It writes the acceptance criteria first, and the reviewer checks the work against them. "Is there a bug?" and "Does it do what it should?" are different questions.
+- **It reviews plans, not only code.** Give it a roadmap, a spec or a design note before any code exists. A blind spot is cheaper to fix in a plan than in code.
+- **It shows the noise.** Every finding is checked and labelled, so you see how much of a review was useful. With the full pack, these counts go into a log that the audit reads.
+
+## What is inside
+
+```
+.claude/skills/
+└── fresh-review/SKILL.md   independent review by an agent with no shared context
+.claude-plugin/             plugin files, so Claude Code can install it with /plugin
+demo/                       a worked example of the full pack, with real, unedited outputs
+```
+
+See `demo/README.md` for the whole story: the bug, the review, and the audit that found the same blind spot in the plan. The demo was produced with the full pack, so it also shows the skills that are not in this free edition.
 
 ## What it does not do
 
@@ -51,9 +69,11 @@ See `demo/README.md`, step 4: a fresh review found a real bug that a weak test h
 
 ## The full pack
 
-Adds: `roadmap` (a rough idea to a roadmap of finished, verifiable milestones), `milestone` (build one milestone with approval and verification at each step), `log-event` (a log of what went wrong), `audit` (read the log, find what repeats, propose one hypothesis), `experiment` (test the hypothesis with a baseline and a verdict), the router `CLAUDE.md`, the project-state and roadmap templates, the experiment template, and a step-by-step guide. With the full pack, `fresh-review` also records its counts in the event log for the audit.
+The full pack is for the step before the review: turning an idea into milestones with a Definition of Done you approve, and building them one at a time with verification at the end. It also keeps a log of what went wrong, so you can see what repeats and test a fix.
 
-Full pack: https://tnsystems.gumroad.com/l/workflow-pack
+It adds: `roadmap` (a rough idea to a roadmap of finished, verifiable milestones), `milestone` (build one milestone with approval and verification at each step), `log-event` (a log of what went wrong), `audit` (read the log, find what repeats, propose one hypothesis), `experiment` (test the hypothesis with a baseline and a verdict), the router `CLAUDE.md`, the project-state and roadmap templates, the experiment template, and a step-by-step guide. With the full pack, `fresh-review` also records its counts in the event log for the audit.
+
+Full pack, 39 USD, 14-day refund: https://tnsystems.gumroad.com/l/workflow-pack
 
 ## License
 
