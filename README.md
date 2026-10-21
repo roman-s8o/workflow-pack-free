@@ -73,7 +73,7 @@ The full pack is for the step before the review: turning an idea into milestones
 
 It adds: `roadmap` (a rough idea to a roadmap of finished, verifiable milestones), `milestone` (build one milestone with approval and verification at each step), `log-event` (a log of what went wrong), `audit` (read the log, find what repeats, propose one hypothesis), `experiment` (test the hypothesis with a baseline and a verdict), the router `CLAUDE.md`, the project-state and roadmap templates, the experiment template, and a step-by-step guide. With the full pack, `fresh-review` also records its counts in the event log for the audit.
 
-Full pack, 39 USD, 14-day refund: https://tnsystems.gumroad.com/l/workflow-pack
+Full pack, 39 USD: https://tnsystems.gumroad.com/l/workflow-pack
 
 ## License
 
